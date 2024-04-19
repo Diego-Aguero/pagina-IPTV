@@ -1,3 +1,131 @@
+/* reset CSS */
+
+/* aqui definimos las custom properties */
+:root{
+	--color-primario: #f0f0f0 ;
+	--color-secundario: #181818;
+
+	/* tipografia */
+	--tipografia-principal : Helvetica, arial, sans-serif;
+	--tipografia-secundaria: Verdana;
+}
+
+/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+
+@media (prefers-contrast: high) {
+	:root{
+		--color-primario : white;
+		--color-secundario : black;
+	}
+}
+
+/* opcional */
+/* desactivamos los animations en el caso de que el usuario haya configurado el modo sin animaciones */
+@media (prefers-reduced-motion: reduce) {
+	* /* colocar el selector cocreto */ {
+		animation: none;
+		transition:none;
+	}
+}
+
+/* reseteamos todos los margins y paddings de todas las etiquetas */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	vertical-align: baseline;
+}
+
+/* evitamos problemas con la imagen */
+img, picture, video, iframe, figure {
+	max-width: 100%;
+	width: 100%;
+	display: block;
+	/* opcional */ object-fit: cover;
+	/* opcional */ object-position: center center;
+}
+
+/* resetea los enlaces para funcionar como cajas ... */
+a {
+	display: block;
+}
+
+/* ... excepto los que se encuentran en parrafos */
+p a {
+	display: inline;
+}
+
+/* quitamos los puntos de los <li> */
+li {
+	list-style-type: none;
+}
+
+/* configuramos anclas suaves */
+html {
+	scroll-behavior: smooth;
+}	
+
+/* desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+	font-size: 1em;
+	font-weight: inherit;
+	font-style: inherit;
+	text-decoration: none;
+	color: inherit;
+}
+
+/* evitamos problemas con los pseuielementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* configuramos el texto que seleccionamos */
+::selection {
+	background-color: var(--color-primario);
+	color: var(--color-secundario);
+}
+
+/* nivelamos problemas de tipografias y colocacion de formularios */
+form, input, textarea, select, button, label {
+	font-family: inherit;
+	font-size: inherit;
+	hyphens: auto;
+	background-color: transparent;
+	display: block;
+	color: inherit;
+}
+
+/* reseteamos tablas */
+table, tr, td {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* evitamos problemas con los SVG */
+svg {
+	width: 100%;
+	display: block;
+	fill: currentColor;
+}
+
+/* configuramos la tipografia para toda la web */
+body{
+	min-height: 100vh;
+	font-size: 100%;
+	font-family: var(--tipografia-principal);
+	color: var(--color-primario);
+	background-color: var(--color-secundario);
+	/* opcional */ line-height: 1.4em;
+	/* opcional */ font-smooth: always;
+	/* opcional */ -webkit-font-smoothing: antialiased;
+	/* opcional */ -moz-osx-font-smoothing: grayscale;
+}
+/* reset css */
+
+/* inicio de modificaciones */
+
 * {
   box-sizing: border-box;
 }
