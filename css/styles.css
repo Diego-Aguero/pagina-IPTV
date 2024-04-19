@@ -1,0 +1,701 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-top: 4em;
+  transition: 0.5s ease-in-out;
+  background-color: white;
+  color: black;
+}
+
+h1 { font-size: 3.5em; }
+h2 { font-size: 2.5em; }
+p { font-size: 1.5em; }
+a { font-size: 1.5em; }
+
+button {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 0.67em 1.33em;
+  border: none;
+  box-shadow: 0.13em 0.13em 0.67em rgba(0, 0, 0, 0.5);
+  color: white;
+  background-color: rgb(220, 20, 60);
+  border-radius: 0.67em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(150, 0, 24);
+}
+
+button:active {
+  transform: scale(0.94);
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #434343;
+  appearance: none;
+  outline: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+input[type="checkbox"]:checked {
+  background-color: rgb(255, 230, 110);
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.7s ease;
+  z-index: 2;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px; /* Ancho del toggle */
+  height: 20px; /* Altura del toggle */
+  margin-top: 0.3em;
+}
+
+/* Estilo del checkbox oculto */
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Estilo del slider del toggle */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(30, 30, 30); /* Color del slider en modo claro */
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 20px; /* Radio de los bordes del slider */
+}
+
+/* Estilo del slider en modo noche (cuando el checkbox está marcado) */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; /* Tamaño del círculo del slider */
+  width: 16px;
+  left: 2px; /* Espaciado a la izquierda del slider */
+  bottom: 2px; /* Espaciado en la parte inferior del slider */
+  background-color: white; /* Color del círculo en modo claro */
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%; /* Radio del círculo */
+  z-index: 2;
+}
+
+/* Estilo del icono de día */
+.dia {
+  position: absolute;
+  left: 4px; /* Alinea el icono de día a la izquierda */
+  bottom: 3px; /* Alinea el icono de día a la parte inferior */
+  font-size: 14px; /* Tamaño del icono de día */
+  color: #333; /* Color del icono de día */
+  font-size: 1.2em;
+}
+
+
+/* Estilo del icono de noche */
+.noche {
+  position: absolute;
+  right: 4px; /* Alinea el icono de noche a la derecha */
+  bottom: 3px; /* Alinea el icono de noche a la parte inferior */
+  font-size: 14px; /* Tamaño del icono de noche */
+  color: #fff; /* Color del icono de noche */
+}
+
+/* Estilo del slider cuando el checkbox está marcado (modo noche) */
+input:checked + .slider {
+  background-color: rgb(220, 20, 60); /* Cambia el color del slider en modo noche */
+}
+
+/* Estilo del círculo del slider cuando el checkbox está marcado (modo noche) */
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px); /* Mueve el círculo a la derecha */
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+img {
+  max-width: 50em; /* Tamaño de imagen ajustado */
+  width: 100%;
+  height: auto;
+}
+
+img {
+  display: none;
+}
+
+.title {
+  text-align: center;
+}
+
+.container {
+  max-width: 71.875em; /* Tamaño de contenedor ajustado */
+  margin: auto;
+}
+
+.color-acento {
+  color: rgb(220, 20, 60);
+}
+
+header {
+  background-color: rgb(245, 245, 245);
+}
+
+header .logo a {
+  margin: 0;
+  padding: 0.5em 0.5em; /* Espaciado interno ajustado */
+  font-size: 3.33em; /* Tamaño de fuente ajustado */
+  font-weight: bold;
+  color: rgb(220, 20, 60);
+}
+
+header .logo a:hover {
+  color: rgb(220, 20, 60);
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header nav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 0; /* Espaciado inferior ajustado */
+}
+
+header a {
+  padding: 0.33em 0.75em; /* Espaciado interno ajustado */
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+header a:hover {
+  color: rgb(220, 20, 60);
+}
+
+/* hero */
+#hero {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#hero h1 {
+  text-align: center;
+  font-size: 3.5vw; /* Tamaño de fuente ajustado */
+  margin: 0 auto;
+  margin-bottom: 1.56em; /* Espaciado inferior ajustado */
+}
+
+/* explicacion */
+#explicacion .container {
+  text-align: center;
+  padding: 6.67em 0.4em; /* Espaciado ajustado */
+}
+
+/* operacion */
+#operacion {
+  background-color: rgb(220, 20, 60);
+}
+
+#operacion .container {
+  text-align: center;
+  padding: 6.67em 0.4em; /* Espaciado ajustado */
+}
+
+#operacion p {
+  color: rgb(245, 245, 245);
+}
+
+#operacion h2 {
+  color: rgb(245, 245, 245);
+}
+
+#operacion img {
+  max-width: 50em; /* Tamaño de imagen ajustado */
+  max-height: 50em; /* Tamaño de imagen ajustado */
+}
+
+/* contactos */
+#contactos .container {
+  text-align: center;
+  padding: 6.67em 0.4em; /* Espaciado ajustado */
+}
+
+.iconos img {
+  width: 9.375em; /* Tamaño de imagen ajustado */
+  max-width: 100%;
+  margin: 0 1em; /* Espaciado ajustado */
+}
+
+.titulo-final {
+  color: rgb(220, 20, 60);
+}
+
+/* Estilos para el modo oscuro */
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Estilos específicos para el modo oscuro */
+.dark-mode header {
+  background-color: #222;
+}
+
+.dark-mode a {
+  color: #ccc;
+}
+
+.dark-mode i {
+  color: color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Estilos para el modo oscuro */
+  body {
+    background-color: black;
+    color: white;
+  }
+}
+
+.toggle {
+  margin-right: 7px;
+}
+
+.toggle .español img,
+.toggle .ingles img {
+  width: 14px; /* Tamaño de las imágenes */
+  height: 14px; /* Tamaño de las imágenes */
+  vertical-align: middle; /* Alineación vertical en el centro */
+  margin-right: 5px; /* Espaciado a la derecha de las imágenes */
+  position: relative;
+}
+
+.toggle .español img {
+  top: -10px; /* Mueve las imágenes hacia arriba (ajusta según sea necesario) */
+  right: -3px; /* Mueve las imágenes hacia la derecha (ajusta según sea necesario) */
+}
+
+
+.toggle .ingles img {
+  top: -22px;
+  right: -23px;
+}
+
+
+/* Media query para pantallas grandes (ancho mínimo de 1000px) */
+@media (min-width: 1000px) {
+  body {
+    font-size: 66%; /* Tamaño de fuente ajustado */
+  }
+
+  #hero {
+    height: 100vh;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+  }
+
+  header .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: none;
+  }
+
+  header .logo a {
+    font-size: 3.33em; /* Tamaño de fuente ajustado */
+    margin-right: auto;
+    margin-left: 3.125em; /* Espaciado ajustado */
+    margin-top: 3.33em; /* Espaciado ajustado */
+    margin-bottom: 2.5em; /* Espaciado ajustado */
+  }
+
+  header nav {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 3.125em; /* Espaciado ajustado */
+    margin-top: 3.33em; /* Espaciado ajustado */
+    margin-bottom: 2.5em; /* Espaciado ajustado */
+  }
+
+  .container {
+    max-width: 50.5vw; /* Tamaño de contenedor ajustado */
+  }
+
+  .iconos {
+    display: flex;
+    justify-content: center;
+  }
+
+  .iconos img {
+    width: 3.625em; /* Tamaño de imagen ajustado */
+    max-width: 100%;
+  }
+
+  .iconos a {
+    padding-right: 1em;
+    margin-left: 0.70em;
+    margin-right: 0.70em; /* Espaciado ajustado */
+  }
+
+  #especificaciones .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6.67em 0.4em;
+    max-width: 57.5vw;
+  }
+
+  #explicacion .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6.67em 0.4em;
+    max-width: 57.5vw;
+  }
+
+  #explicacion p {
+    text-align:   ;
+  }
+
+  .explicacion-content {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  #operacion .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6.67em 0.4em; /* Espaciado ajustado */
+  }
+
+  #operacion p {
+    text-align: ;
+  }
+
+  .operacion-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .operacion-text {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2em;
+  }
+
+  .mapa {
+    display: block;
+    max-width: 30em; 
+    width: 40%;
+    height: auto;
+  }
+
+  .imgiptv {
+    display: block;
+    margin-right: 50px;
+  }
+
+  .redes {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: none; /* Muestra el botón de hamburguesa en pantallas pequeñas */
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+
+}
+
+
+/* Media query para pantallas más pequeñas (ancho máximo de 999px) */
+@media (max-width: 999px) {
+  body {
+    padding-top: 0;
+  }
+
+  #hero {
+    height: 100vh;
+  }
+
+  header {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    transition: 1s ease;
+  }
+
+  header .container {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  header nav {
+    flex-direction: column;
+    padding-bottom: 0.93em; /* Espaciado ajustado */
+  }
+
+  header .logo a {
+    font-size: 6.9em; /* Tamaño de fuente ajustado */
+    margin-top: 20px;
+  }
+
+  header a {
+    font-size: 2em; /* Tamaño de fuente ajustado */
+  }
+
+ #hero h1 {
+  text-align: center;
+  font-size: 4.9vw; /* Tamaño de fuente ajustado */
+  margin: 0 auto;
+  margin-bottom: 1.56em; /* Espaciado inferior ajustado */
+  }
+
+  .iconos {
+    display: flex;
+    justify-content: center;
+  }
+
+  .iconos img {
+    width: 5em; /* Tamaño de imagen ajustado */
+    max-width: 100%;
+    margin: 0 0.67em; /* Espaciado ajustado */
+  }
+
+  .iconos a {
+    margin-right: 1.5em; /* Espaciado ajustado */
+  }
+
+  .redes {
+    display: block;
+  }
+
+  #hero button{
+    font-size: 2.4em;
+  }
+
+  .toggle {
+    width: 80px; /* Ancho del toggle más grande */
+    height: 40px; /* Altura del toggle más grande */
+  }
+
+  .toggle input[type="checkbox"] {
+    width: 80px; /* Ancho del checkbox más grande */
+    height: 40px; /* Altura del checkbox más grande */
+  }
+
+  /* Estilo del slider en pantallas pequeñas */
+  .slider {
+    width: 80px; /* Ancho del slider más grande */
+    height: 40px; /* Altura del slider más grande */
+  }
+
+  /* Aumentar el tamaño de la bola blanca en pantallas pequeñas */
+  .slider:before {
+    height: 32px; /* Tamaño del círculo del slider más grande */
+    width: 32px; /* Tamaño del círculo del slider más grande */
+    bottom: 4px; /* Ajusta la posición vertical de la bola blanca */
+    transform: translateX(4px);
+  }
+
+  .fa-solid.fa-sun {
+    font-size: 24px; /* Tamaño de fuente más grande para el icono de sol */
+    vertical-align: middle; /* Alinea verticalmente el icono */
+    margin-bottom: 4px; /* Ajusta la posición vertical del icono */
+  }
+
+  .fa-solid.fa-moon {
+    font-size: 24px; /* Tamaño de fuente más grande para el icono de luna */
+    vertical-align: middle; /* Alinea verticalmente el icono */
+    margin-bottom: 4px; 
+    margin-right: 5px;
+  }
+
+  .dark-mode input:checked + .slider:before {
+    transform: translateX(40px);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(40px);
+  }
+
+  .toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em; /* Espaciado superior ajustado */
+  }
+
+  .toggle {
+    width: 80px; /* Ancho del toggle más grande */
+    height: 40px; /* Altura del toggle más grande */
+  }
+
+  .toggle .español img,
+  .toggle .ingles img {
+    width: 24px; /* Tamaño de las imágenes */
+    height: 24px; /* Tamaño de las imágenes */
+    vertical-align: middle; /* Alineación vertical en el centro */
+    margin-right: 5px; /* Espaciado a la derecha de las imágenes */
+  }
+
+  .toggle .español {
+    top: -32px;
+    right: -5px;
+    position: relative;
+  } 
+
+  .toggle .ingles {
+    top: -43px;
+    right: -26px;
+    position: relative
+  }
+
+  .menu-toggle {
+    display: block; /* Asegúrate de que el botón de hamburguesa esté visible */
+    position: absolute;
+    top: 20px; /* Ajusta la distancia desde la parte superior según sea necesario */
+    right: 20px; /* Ajusta la distancia desde la derecha según sea necesario */
+    cursor: pointer;
+    z-index: 3; /* Asegura que esté por encima de otros elementos */
+  }
+
+  .menu-toggle {
+  display: none; /* Oculta el botón de hamburguesa inicialmente */
+  }
+
+  /* Estilo para el ícono del botón de hamburguesa */
+  .menu-icon {
+    font-size: 2.5em;
+    cursor: pointer;
+    display: block;
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  menu-toggle:checked + .navbar {
+    right: 0; /* Muestra el menú cuando el botón de hamburguesa está marcado */
+  }
+
+  .navbar {
+    position: fixed;
+    top: 5.2em;
+    right: -999px; /* Inicialmente, el menú está fuera de la pantalla */
+    background-color: #fff; /* Cambia el color de fondo según tus preferencias */
+    width: 300px; /* Ancho del menú */
+    height: 50%; /* Alto del menú, ocupa la mitad de la pantalla */
+    transition: right 0.3s ease;
+    z-index: 1; /* Z-index menor para que el menú esté por debajo del encabezado */
+    padding-top: 6em; /* Añade un espacio superior para que no se superponga con el encabezado */
+    color: white; /* Cambia el color del texto según tus preferencias */
+    font-size: 1.5em;
+    padding: 1em 0.5em; /* Espaciado interno del enlace */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex; /* Activa el modelo de caja flexible */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    width: 100%;
+    transition: 1s ease;
+  }
+
+  .dark-mode .navbar {
+    background-color: black;
+  }
+
+  .navbar a:hover {
+    color: rgb(220, 20, 60);
+  }
+
+  .navbar a {
+    width: 100%;
+  }
+
+  .menu-icon {
+    font-size: 2.5em;
+    cursor: pointer;
+    display: block;
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+  }
+
+
+}

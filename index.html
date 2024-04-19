@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Leon IPTV</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <script src="https://kit.fontawesome.com/c3200283ff.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="#">Leon IPTV</a>
+      </div>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" checked>
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <nav class="navbar">
+        <a href="#" class="español-text">Inicio</a>
+        <a href="#" class="ingles-text" style="display: none;">Home</a>
+        <a href="#explicacion" class="español-text">Explicación</a>
+        <a href="#explicacion" class="ingles-text" style="display: none;">Explanation</a>
+        <a href="#operacion" class="español-text">Áreas</a>
+        <a href="#operacion" class="ingles-text" style="display: none;">Areas</a>
+        <a href="#contactos" class="español-text">Contáctos</a>
+        <a href="#contactos" class="ingles-text" style="display: none;">Contacts</a>
+        <div class="toggle-container">
+          <label class="toggle">
+            <input id="checkitem" type="checkbox" onclick="enableDarkMode()">
+            <span class="slider"></span>
+            <span class="dia"><i class="fa-solid fa-sun"></i></span>
+            <span class="noche"><i class="fa-solid fa-moon"></i></span>
+          </label>
+        </div>
+        <div class="toggle-container">
+          <label class="toggle">
+            <input id="checkitemLanguage" type="checkbox" onclick="toggleLanguage()">
+            <span class="slider"></span>
+            <span class="español"><img class="redes" src="img/español.png"></span>
+            <span class="ingles"><img class="redes" src="img/ingles.png"></span>
+          </label>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section id="hero">
+    <h1 class="español-text">Bienvenido a la mejor experiencia IPTV</h1>
+    <h1 class="ingles-text" style="display: none;">Welcome to the best IPTV experience</h1>
+    <button  id="boton-comprar" class="español-text">Comprar</button>
+    <button  id="boton-comprar" class="ingles-text" style="display: none;">Buy now</button>
+  </section> 
+
+  <!-- Explicación -->
+  <section id="explicacion">
+    <div class="container">
+      <div class="explicacion-content">
+        <div class="explicacion-text">
+          <h2 class="español-text">¿Qué es la tecnología <span class="color-acento">IPTV</span>?</h2>
+          <h2 class="ingles-text" style="display: none;">What is <span class="color-acento">IPTV </span>technology?</h2>
+          <p class="español-text">IPTV o por sus siglas del inglés Televisión por Protocolo de Internet es una tecnología que permite la transmisión de contenidos de televisión y video a través de Internet. Esto permite acceder a una amplia variedad de canales y programas a través de dispositivos conectados a internet, como Smart TV, computadoras, tabletas y teléfonos inteligentes.</p>
+          <p class="ingles-text" style="display: none;">IPTV, or Internet Protocol Television, is a technology that enables the transmission of television and video content over the Internet. This allows access to a wide variety of channels and programs through internet-connected devices such as Smart TVs, computers, tablets, and smartphones.</p>
+        </div>
+        <img class="imgiptv" src="img/iptv.png">
+      </div>    
+    </div>
+  </section>
+
+  <!-- Área de operación-->
+  <section id="operacion">
+    <div class="container">
+      <div class="operacion-content">
+        <div class="operacion-text">
+          <h2 class="español-text">Área de operación</h2>
+          <h2 class="ingles-text" style="display: none;">Operation area</h2>
+          <p class="español-text">Nuestra tienda IPTV opera con envíos a todo el país, ofreciendo servicios de alta calidad y una amplia selección de contenido para satisfacer las necesidades de entretenimiento de nuestros clientes en la región.</p>
+          <p class="ingles-text" style="display: none;">Our IPTV store operates with nationwide shipping, offering high-quality services and a wide selection of content to meet the entertainment needs of our customers in the region.</p>
+        </div>
+        <img class="mapa" src="img/argentina.png">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contactos -->
+  <section id="contactos">
+    <div class="container">
+      <h2 class="español-text">Asesoramiento</h2>
+      <h2 class="ingles-text" style="display: none;">Consultation</h2>
+      <p class="español-text">Si necesitas ayuda para elegir el plan adecuado o tienes alguna pregunta, estamos aquí para ayudarte. Puedes ponerte en contacto con nosotros a través de los siguientes medios:</p>
+      <p class="ingles-text" style="display: none;">If you need help choosing the right plan or have any questions, we are here to assist you. You can contact us through the following means:</p>
+      <div class="iconos">
+        <a href="#"><img class="redes" src="img/whatsapp.png" alt="Whatsapp"></a>
+        <a href="#"><img class="redes" src="img/facebook.png" alt="facebook"></a>
+        <a href="#"><img class="redes" src="img/gmail.png" alt="Email"></a>
+      </div>
+      <p class="español-text">No dudes en comunicarte con nosotros. Estamos aquí para brindarte la mejor experiencia IPTV.</p>
+      <p class="ingles-text" style="display: none;">Feel free to get in touch with us. We are here to provide you with the best IPTV experience.</p>
+      <p class="titulo-final">&copy; Leon IPTV | 2023</p>
+    </div>
+  </section>
+
+  <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
